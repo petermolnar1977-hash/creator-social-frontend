@@ -3,6 +3,12 @@ import Navbar from "@/components/Navbar";
 import PostCard from "@/components/PostCard";
 import PostForm from "@/components/PostForm";
 import api from "@/lib/api";
+import { useAuth } from "@/context/AuthContext";
+// ...
+const { user } = useAuth();
+// ...
+{user && <PostForm />}
+{!user && <p className="text-center text-gray-600 mt-4">Please log in to create posts.</p>}
 
 interface Post {
   id: string;
